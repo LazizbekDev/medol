@@ -1,8 +1,10 @@
 import "./Company.css";
 
+// eslint-disable-next-line react/prop-types
 const Company = ({title = "О КОМПАНИИ"}) => {
     return (
         <div className={"mx-auto w-full company"} style={{zIndex: 0}}>
+            {/* eslint-disable-next-line react/no-unknown-property */}
             <h1 className={"h1 py-12 primary-color hero-heading"} align={"center"}>{title}</h1>
 
             <div className="hero md:mt-64 mt-0">
@@ -18,6 +20,7 @@ const Company = ({title = "О КОМПАНИИ"}) => {
                         <p className="py-6">
                             Группа компаний MEDOL создавалась высококвалифицированными специалистами в сфере медицины,
                             инженерии и экономики, за плечами которых значительный опыт на рынке высоких медицинских технологий, которая имеет свои представительства
+                            {/* eslint-disable-next-line react/no-unescaped-entities */}
                             в разных уголках Земли. В 2011 году MEDOL зарегистрировал в Узбекистане ИП ООО “Medical Online Services".
                             Цель компании построить прозрачный долгосрочный бизнес, принести пользу обществу путем развития и внедрения
                             передовых технологий в систему здравоохранения Республики Узбекистан.

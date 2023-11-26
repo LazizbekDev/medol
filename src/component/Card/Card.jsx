@@ -10,6 +10,7 @@ const Card = () => {
     ];
     return (
         <div className={"mx-auto w-full"} style={{zIndex: 0}}>
+            {/* eslint-disable-next-line react/no-unknown-property */}
             <h1 className={"h1 my-6 primary-color hero-heading"} align={"center"} style={{zIndex: 0}}>ПРОДУКЦИЯ</h1>
 
             <div className="card-grid bg-white">

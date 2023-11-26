@@ -3,7 +3,7 @@ import CustomCarousel from "./assets/Carousel.jsx";
 import {Link, useLocation} from "react-router-dom";
 
 const Header = () => {
-    const [isSticky, setSticky] = useState(false);
+    const [setSticky] = useState(false);
     const [opened, setOpened] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -36,6 +36,7 @@ const Header = () => {
         };
 
         // Attach the scroll event listener
+        // eslint-disable-next-line no-unreachable
         window.addEventListener('scroll', handleScroll);
 
         // Clean up the event listener on component unmount
@@ -134,6 +135,7 @@ const Header = () => {
                                     {/* eslint-disable-next-line react/no-unescaped-entities */}
                                     <li><a>
                                         <img src={"/uz.webp"} alt={""} className={'w-8 h-8 rounded-full'}/>
+                                        {/* eslint-disable-next-line react/no-unescaped-entities */}
                                         <span>O'zbekcha</span>
                                     </a></li>
                                 </ul>

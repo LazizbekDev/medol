@@ -44,6 +44,7 @@ export default function Brand() {
 
     return (
         <div className={"container mx-auto sm:px-6 overflow-hidden"} style={{zIndex: 0}}>
+            {/* eslint-disable-next-line react/no-unknown-property */}
             <h1 className={"h1 primary-color hero-heading"} align={"center"}>ПАРТНЕРЫ</h1>
             <Swiper
                 ref={sliderRef}

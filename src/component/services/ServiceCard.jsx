@@ -1,3 +1,4 @@
+// eslint-disable-next-line react/prop-types
 const ServiceCard = ({src, heading, p}) => {
     return (
         <div className="card card-service w-auto bg-white mx-5" style={{zIndex: 0}}>

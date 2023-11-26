@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 const NewsCard = ({src, link, date, p, slug}) => {
     return (
         <div className="card -mb-24 w-auto news-card">
