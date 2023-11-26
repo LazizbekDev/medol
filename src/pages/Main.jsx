@@ -7,12 +7,12 @@ import News from "../component/news/News.jsx";
 const Main = () => {
     return (
         <>
-            <div className="container mx-auto sm:px-6 py-4">
+            <div className="container mx-auto sm:px-6 py-4" style={{zIndex: 0}}>
                 <Card />
             </div>
             <Services />
 
-            <div className="container mx-auto sm:px-6 py-4">
+            <div className="container mx-auto sm:px-6 py-4" style={{zIndex: 0}}>
                 <Company />
             </div>
             <News />

@@ -1,9 +1,9 @@
 import "./Company.css";
 
-const Company = () => {
+const Company = ({title = "О КОМПАНИИ"}) => {
     return (
-        <div className={"mx-auto w-full company"}>
-            <h1 className={"h1 py-12 primary-color hero-heading"} align={"center"}>О КОМПАНИИ</h1>
+        <div className={"mx-auto w-full company"} style={{zIndex: 0}}>
+            <h1 className={"h1 py-12 primary-color hero-heading"} align={"center"}>{title}</h1>
 
             <div className="hero md:mt-64 mt-0">
                 <div className="hero-content flex-col lg:flex-row">

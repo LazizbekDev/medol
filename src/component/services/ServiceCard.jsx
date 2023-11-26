@@ -1,6 +1,6 @@
 const ServiceCard = ({src, heading, p}) => {
     return (
-        <div className="card card-service w-auto bg-white mx-5">
+        <div className="card card-service w-auto bg-white mx-5" style={{zIndex: 0}}>
             <figure><img src={src} alt="Shoes" /></figure>
             <div className="card-body items-center">
                 <h2 className="primary-color">{heading}</h2>

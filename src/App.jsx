@@ -1,9 +1,11 @@
 
 import './App.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import Medol from "./pages/Medol.jsx";
 import Layout from "./ui/Layout.jsx";
 import Main from "./pages/Main.jsx";
+import News from "./component/news/News.jsx";
+import Company from "./component/company/Company.jsx";
+import Brand from "./component/brand/Brand.jsx";
 
 function App() {
 
@@ -16,8 +18,16 @@ function App() {
           element: <Main />
         },
         {
-          path: "/Medol",
-          element: <Medol />
+          path: "/medol",
+          element: <Brand />
+        },
+        {
+          path: "/really-sorry",
+          element: <Company title={"Sorry i couldn't do it well as i thought"} />
+        },
+        {
+          path: "/sorry",
+          element: <News />
         }
       ]
     }

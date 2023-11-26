@@ -9,12 +9,12 @@ const Card = () => {
         {src: "/slide-1@2x.png", title: 'Card 6'},
     ];
     return (
-        <div className={"mx-auto w-full"}>
-            <h1 className={"h1 my-6 primary-color hero-heading"} align={"center"}>ПРОДУКЦИЯ</h1>
+        <div className={"mx-auto w-full"} style={{zIndex: 0}}>
+            <h1 className={"h1 my-6 primary-color hero-heading"} align={"center"} style={{zIndex: 0}}>ПРОДУКЦИЯ</h1>
 
             <div className="card-grid bg-white">
                 {cards.map((card, index) => (
-                    <div className="card" key={index}>
+                    <div className="card" key={index} style={{zIndex: 0}}>
                         <figure className="md:px-10 px-5 pt-10 h-64 w-64 mx-auto">
                             <img src={card.src} alt="Shoes" className="rounded-xl p-3" />
                         </figure>

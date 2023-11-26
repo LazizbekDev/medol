@@ -10,8 +10,6 @@ const News = () => {
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
-            console.log(window.innerWidth)
-
         };
 
         // Add event listener for window resize
@@ -75,7 +73,7 @@ const News = () => {
     }, []);
 
     return (
-        <div className={"container mx-auto sm:px-6 py-4 overflow-hidden"}>
+        <div className={"container mx-auto sm:px-6 py-4 overflow-hidden"} style={{zIndex: 0}}>
             <h1 className={"h1 pt-6 primary-color hero-heading"} align={"center"}>НОВОСТИ</h1>
 
             <Swiper

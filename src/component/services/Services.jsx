@@ -20,7 +20,7 @@ const Services = () => {
         },
     ]
     return (
-        <div className={"service my-5"}>
+        <div className={"service my-5"} style={{zIndex: 0}}>
             <div className={"service-bg"}/>
 
             <div className={"container mx-auto sm:px-6 py-24 grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-x-8 gap-y-4"}>

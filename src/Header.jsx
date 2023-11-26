@@ -1,16 +1,32 @@
 import {useEffect, useState} from "react";
 import CustomCarousel from "./assets/Carousel.jsx";
+import {Link, useLocation} from "react-router-dom";
 
 const Header = () => {
     const [isSticky, setSticky] = useState(false);
     const [opened, setOpened] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const path = useLocation();
 
     const openHandler = () => {
         setOpened((prevState) => !prevState);
-        console.log(opened);
     }
 
     useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        // Add event listener for window resize
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+
+        // eslint-disable-next-line no-unreachable
         const handleScroll = () => {
             // Determine the scroll position
             const scrollPosition = window.scrollY;
@@ -28,7 +44,7 @@ const Header = () => {
         };
     }, []);
     return (
-        <header className="text-gray-900 header">
+        <header className="text-gray-900 header" style={{height: path.pathname === "/" ? "100vh" : "25vh"}}>
             <nav className="container mx-auto lg:px-6 px-1 py-4">
                 <div className="flex md:items-center justify-between">
                     <div className="hidden lg:flex flex-1 items-center justify-between">
@@ -63,27 +79,6 @@ const Header = () => {
                                 </p>
                             </div>
 
-                        </div>
-
-                        <div className="md:hidden">
-                            <label className="btn btn-circle bg-white border-none hover:bg-gray-200 swap swap-rotate">
-
-                                {/* this hidden checkbox controls the state */}
-                                <input type="checkbox" onChange={openHandler} />
-
-                                {/* hamburger icon */}
-                                <svg className="swap-off fill-current ml-1.5" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
-                                    <path d="M1.5 0C0.671573 0 0 0.671573 0 1.5C0 2.32843 0.671573 3 1.5 3H17.5C18.3284 3 19 2.32843 19 1.5C19 0.671573 18.3284 0 17.5 0H1.5Z" fill="#0D4C93"/>
-                                    <path d="M1.5 5C0.671573 5 0 5.67157 0 6.5C0 7.32843 0.671573 8 1.5 8H11.5C12.3284 8 13 7.32843 13 6.5C13 5.67157 12.3284 5 11.5 5H1.5Z" fill="#0D4C93"/>
-                                    <path d="M0 11.5C0 10.6716 0.671573 10 1.5 10H17.5C18.3284 10 19 10.6716 19 11.5C19 12.3284 18.3284 13 17.5 13H1.5C0.671573 13 0 12.3284 0 11.5Z" fill="#0D4C93"/>
-                                    <path d="M1.5 15C0.671573 15 0 15.6716 0 16.5C0 17.3284 0.671573 18 1.5 18H11.5C12.3284 18 13 17.3284 13 16.5C13 15.6716 12.3284 15 11.5 15H1.5Z" fill="#0D4C93"/>
-                                </svg>
-                                {/* close icon */}
-                                <svg className="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
-                                    <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/>
-                                </svg>
-
-                            </label>
                         </div>
                     </div>
 
@@ -143,30 +138,53 @@ const Header = () => {
                                     </a></li>
                                 </ul>
                             </details>
+
+                            {screenWidth < 573 && (
+                                <div className="md:hidden" style={{zIndex: 999}}>
+                                    <label className="btn btn-circle bg-white border-none hover:bg-gray-200 swap swap-rotate">
+
+                                        {/* this hidden checkbox controls the state */}
+                                        <input type="checkbox" onChange={openHandler} />
+
+                                        {/* hamburger icon */}
+                                        <svg className="swap-off fill-current ml-1.5" xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                                            <path d="M1.5 0C0.671573 0 0 0.671573 0 1.5C0 2.32843 0.671573 3 1.5 3H17.5C18.3284 3 19 2.32843 19 1.5C19 0.671573 18.3284 0 17.5 0H1.5Z" fill="#0D4C93"/>
+                                            <path d="M1.5 5C0.671573 5 0 5.67157 0 6.5C0 7.32843 0.671573 8 1.5 8H11.5C12.3284 8 13 7.32843 13 6.5C13 5.67157 12.3284 5 11.5 5H1.5Z" fill="#0D4C93"/>
+                                            <path d="M0 11.5C0 10.6716 0.671573 10 1.5 10H17.5C18.3284 10 19 10.6716 19 11.5C19 12.3284 18.3284 13 17.5 13H1.5C0.671573 13 0 12.3284 0 11.5Z" fill="#0D4C93"/>
+                                            <path d="M1.5 15C0.671573 15 0 15.6716 0 16.5C0 17.3284 0.671573 18 1.5 18H11.5C12.3284 18 13 17.3284 13 16.5C13 15.6716 12.3284 15 11.5 15H1.5Z" fill="#0D4C93"/>
+                                        </svg>
+                                        {/* close icon */}
+                                        <svg className="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                                            <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/>
+                                        </svg>
+
+                                    </label>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
 
-                <div className={`flex justify-between z-50 rounded-full mt-10 sm-none ${isSticky ? 'fixed top-0 z-30 left-0 w-full' : ''}`}>
-                    <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">МАГАЗИН</a>
-                    <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">О КОМПАНИИ </a>
-                    <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">ПРОДУКЦИЯ</a>
-                    <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">УСЛУГИ</a>
-                    <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">АКЦИИ И НОВОСТИ</a>
-                    <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">ОБРАТНАЯ СВЯЗЬ</a>
+                <div style={{zIndex: 999}} className={`flex justify-between rounded-full mt-10 sm-none`}>
+                    <Link to={"/really-sorry"} title={"i just did the main page"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">МАГАЗИН</Link>
+                    <Link to={"/sorry"} title={"i just did the main page"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">О КОМПАНИИ </Link>
+                    <Link to={"/medol"} title={"i just did the main page"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">ПРОДУКЦИЯ</Link>
+                    <Link to={"/sorry"} title={"i just did the main page"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">УСЛУГИ</Link>
+                    <Link to={"/medol"} title={"i just did the main page"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">АКЦИИ И НОВОСТИ</Link>
+                    <Link to={"/sorry"} title={"i just did the main page"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">ОБРАТНАЯ СВЯЗЬ</Link>
                 </div>
 
                 {opened && (
-                    <div className={"mobile-navbar"}>
-                        <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">МАГАЗИН</a>
-                        <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">О КОМПАНИИ </a>
-                        <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">ПРОДУКЦИЯ</a>
-                        <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">УСЛУГИ</a>
-                        <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">АКЦИИ И НОВОСТИ</a>
-                        <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">ОБРАТНАЯ СВЯЗЬ</a>
+                    <div className={"mobile-navbar z-50"} style={{left: !opened ? "-100%" : 0}}>
+                        <Link to={"/really-sorry"} title={"i just did the main page"} rel={'noreferrer'} className="w-full underline text-xl">МАГАЗИН</Link>
+                        <Link to={"/sorry"} title={"i just did the main page"} rel={'noreferrer'} className="w-full underline text-xl">О КОМПАНИИ </Link>
+                        <Link to={"/medol"} title={"i just did the main page"} rel={'noreferrer'} className="w-full underline text-xl">ПРОДУКЦИЯ</Link>
+                        <Link to={"/sorry"} title={"i just did the main page"} rel={'noreferrer'} className="w-full underline text-xl">УСЛУГИ</Link>
+                        <Link to={"/medol"} title={"i just did the main page"} rel={'noreferrer'} className="w-full underline text-xl">АКЦИИ И НОВОСТИ</Link>
+                        <Link to={"/sorry"} title={"i just did the main page"} rel={'noreferrer'} className="w-full underline text-xl">ОБРАТНАЯ СВЯЗЬ</Link>
                     </div>
                 )}
-                <CustomCarousel />
+                {path.pathname === '/' && <CustomCarousel />}
             </nav>
         </header>
     )
