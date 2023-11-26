@@ -17,7 +17,8 @@
 
 .brand-swiper {
     width: 100% !important;
-    margin: -20vh auto;
+    margin-top: -20vh;
+    margin-bottom: -10vh;
 }
 
 .brand-swiper .swiper-wrapper {

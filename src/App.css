@@ -33,9 +33,34 @@ body {
 }
 
 .footer-container {
-    background-image: url("https://s3-alpha-sig.figma.com/img/8745/e89d/6ef1ee1fb13a4e0c418559adda5bd6a4?Expires=1701648000&Signature=Qi75vFeiZrmx9lDEGTtjmejMtxRmSuCN6TcP3NCqQHx10p26j56hDtC0qahuf2huuvYqcaY~KB93zwbUQvoYSq3o9OIjE1qfmRmehYFtAs2Vx16jU~BLtN9QPN-VrV5CaZXmxe7tqHsrlvvAKUGouEW0VzjY1hBurzY2fpusCwg-PyTLYPcYjxNinxLd4LH7yxyFeknZ8U-9oFv1BlzKY86xg~I9hB2z1vxGmHNzJICZ78coDa4aHf1gy589lV5E4mX~oXxOQlVg2C3doUVWShkQ~1IwJibZRUYpgFaPbHDdQ8BuR1agn8fr~G~pPo2wnwbsnzLRaDgN8AMYgJ13cw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+    background-image: url("./assets/blur.png");
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0 auto !important;
+}
+
+.footer-btn {
+    font-size: 15px !important;
+}
+
+.footer-p {
+    color: #585858;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: 0.72px;
+}
+
+.footer-items {
+    color: #5A5A5A !important;
+
+    font-family: Roboto, sans-serif;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.4px;
 }
 
 .header::before {

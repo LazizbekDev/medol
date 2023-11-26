@@ -43,8 +43,8 @@ export default function Brand() {
     }, []);
 
     return (
-        <div className={"container mx-auto sm:px-6 py-4 overflow-hidden"}>
-            <h1 className={"h1 pt-6 primary-color hero-heading"} align={"center"}>ПАРТНЕРЫ</h1>
+        <div className={"container mx-auto sm:px-6 overflow-hidden"}>
+            <h1 className={"h1 primary-color hero-heading"} align={"center"}>ПАРТНЕРЫ</h1>
             <Swiper
                 ref={sliderRef}
                 slidesPerView={4}
