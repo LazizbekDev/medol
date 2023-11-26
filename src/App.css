@@ -302,3 +302,16 @@ body {
     position: relative;
     width: 100%;
 }
+
+.skip {
+    background: linear-gradient(90deg, #0d4c93,#00c9c9) !important;
+    border-radius: 50% !important;
+    padding: 20px;
+    z-index: 20;
+    transition: all .2s ease-in-out;
+}
+
+
+.skip:hover {
+    background: linear-gradient(120deg, #0d4c93,#00c9c9) !important;
+}

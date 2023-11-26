@@ -1,7 +1,7 @@
 const SlideItem = ({src, heading, p}) => {
     return (
         <div className="hero min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse max-w-full">
+            <div className="hero-content flex flex-col lg:flex-row-reverse max-w-full">
                 <div className={"slider-img sm-none"}>
                     <img src={src} className="max-w-lg rounded-lg slider-img-item" alt={src} />
                 </div>

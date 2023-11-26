@@ -1,0 +1,46 @@
+
+
+.brand-swiper .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    height: calc((100% - 30px) / 2) !important;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid #ECECEC;
+
+    background: #FFF;
+}
+
+.brand-swiper {
+    width: 100% !important;
+    margin: -20vh auto;
+}
+
+.brand-swiper .swiper-wrapper {
+    height: 40% !important;
+}
+
+
+.skip-left {
+    position: absolute;
+    left: 0;
+}
+
+.skip-right {
+    position: absolute;
+    right: 0;
+}
+
+@media only screen and (max-width: 573px) {
+
+    .brand-swiper .swiper-wrapper {
+        height: 30% !important;
+    }
+    .brand-swiper .swiper-slide {
+        width: 120px !important;
+    }
+}

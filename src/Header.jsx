@@ -144,7 +144,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className={`flex justify-between rounded-full mt-10 sm-none ${isSticky ? 'fixed top-0 z-30 left-0 w-full' : ''}`}>
+                <div className={`flex justify-between z-50 rounded-full mt-10 sm-none ${isSticky ? 'fixed top-0 z-30 left-0 w-full' : ''}`}>
                     <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">МАГАЗИН</a>
                     <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">О КОМПАНИИ </a>
                     <a href={"/#"} rel={'noreferrer'} className="btn py-3 topbar-link rounded-none flex-1 border-l-neutral-content/100 text-xs lg:text-lg">ПРОДУКЦИЯ</a>
